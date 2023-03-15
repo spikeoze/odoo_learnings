@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_patient_id_card">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="card m-auto" style="width: 18rem;">
+                            <img t-if="not o.image"
+                                t-attf-src="/web/static/src/img/placeholder.png"
+                                class="card-img-top"
+                            />
+                            <img class="card-img-top"
+                                t-att-src="'data:image/png;base64,%s' % to_text(o.image)" />
+
+                            <div class="card-body">
+                                <h5 class="card-title"> Name: <span t-field="o.name" />
+                                </h5>
+                                <h6>Age: <span t-field="o.age" />
+                                </h6>
+                                <p class="card-text"> Description <span t-field="o.description" />
+
+                                </p>
+                            </div>
+                        </div>
+                        <br />
+                        <t t-if="o.appointment_ids">
+                            <table class="table" name='appointment'>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Reference</th>
+                                        <th scope="col">Doctor</th>
+                                        <th scope="col">State</th>
+                                        <th scope="col">Description</th>
+
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <t t-set="appointment_count" t-value="0" />
+                                    <t t-foreach="o.appointment_ids" t-as="line">
+                                        <t t-set="appointment_count" t-value="appointment_count + 1" />
+
+
+                                        <tr>
+                                            <th scope="row">
+                                                <span t-field="line.reference" />
+                                            </th>
+                                            <td>
+                                                <span t-field="line.doctor_id" />
+                                            </td>
+                                            <td>
+                                                <span t-field="line.state" />
+                                            </td>
+                                            <td>
+                                                <span t-field="line.description" />
+                                            </td>
+
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td colspan='3'>
+                                            Total Appointments
+                                        </td>
+
+                                        <td>
+                                            <t t-esc="appointment_count" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        </t>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- TREE VIEW -->
+    <record id="assignment_service_view_tree" model="ir.ui.view">
+        <field name="name">assignment.service.view.tree</field>
+        <field name="model">assignment.service</field>
+        <field name="arch" type="xml">
+            <tree expand='1'>
+                <field name="name" />
+                <field name="service_type" />
+                <field name="price" />
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- FORM VIEW -->
+    <record id="assignment_service_view_form" model="ir.ui.view">
+        <field name="name">assignment.service.view.form</field>
+        <field name="model">assignment.service</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+
+                        </group>
+
+                        <group>
+                            <field name="service_type" />
+                            <field name="price" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- SEARCH VIEW -->
+    <record id="assignment_service_view_search" model="ir.ui.view">
+        <field name="name">assignment.service.view.search</field>
+        <field name="model">assignment.service</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <field name='name' />
+                <separator />
+                <!-- GROUPING -->
+                <group string="Group by">
+                    <filter name="service_type" string="Service Type"
+                        context="{'group_by': 'service_type'}" />
+                </group>
+
+                <!-- FILTER -->
+                <filter name="service_type" string="Laboratory"
+                    domain="[('service_type', '=', 'laboratory')]" />
+                <filter name="service_type" string="Dermatology"
+                    domain="[('service_type', '=', 'dermatology')]" />
+                <filter name="service_type" string="Surgery"
+                    domain="[('service_type', '=', 'surgery')]" />
+                <filter name="service_type" string="Radiology"
+                    domain="[('service_type', '=', 'radiology')]" />
+
+
+            </search>
+        </field>
+    </record>
+
+
+    <!-- Window Action  -->
+    <record id="assignment_service_action" model="ir.actions.act_window">
+        <field name="name">Service</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">assignment.service</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="context">{'search_default_service_type': 1 }</field> -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new service here
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem
+        id="service_menu"
+        name="Service"
+        parent="assignment_menu"
+        action="assignment_service_action"
+        sequence="60" />
+
+
+</odoo>

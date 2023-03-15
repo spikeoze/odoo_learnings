@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="patient_card_report_action" model="ir.actions.report">
+        <field name="name">Patient Card</field>
+        <field name="model">assignment.patient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mu_assignment.patient_card_report</field>
+        <field name="report_file">mu_assignment.patient_card_report</field>
+        <field name="binding_model_id" ref="model_assignment_patient" />
+        <field name="binding_type">report</field>
+        <field name="help">Patient Card</field>
+    </record>
+
+
+    <record id="doctor_card_report_action" model="ir.actions.report">
+        <field name="name">Doctor Card</field>
+        <field name="model">assignment.doctor</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mu_assignment.doctor_card_report</field>
+        <field name="report_file">mu_assignment.doctor_card_report</field>
+        <field name="binding_model_id" ref="model_assignment_doctor" />
+        <field name="binding_type">report</field>
+        <field name="help">doctor Card</field>
+    </record>
+
+
+    <record id="doctor_request_report_action" model="ir.actions.report">
+        <field name="name">Doctor Request</field>
+        <field name="model">assignment.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mu_assignment.doctor_request_report</field>
+        <field name="report_file">mu_assignment.doctor_request_report</field>
+        <field name="binding_model_id" ref="model_assignment_request" />
+        <field name="binding_type">report</field>
+        <field name="help">Doctor Request </field>
+    </record>
+
+
+
+
+
+</odoo>

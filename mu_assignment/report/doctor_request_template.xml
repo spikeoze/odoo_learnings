@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="doctor_request_report">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class = 'mb-4'>
+
+                            <h2> Doctor Requesr: <span t-field="o.id" />
+                            </h2>
+
+                            <h5> Date: <span t-field="o.date" />
+
+                            </h5>
+
+                        </div>
+
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class='p-2'>
+                                            <h6> Name: <span t-field="o.patient_id" /></h6>
+                                        </div>
+
+
+                                        <div class='p-2'>
+                                            <h6> Age: <span t-field="o.age" />
+                                            </h6>
+                                        </div>
+
+
+                                    </td>
+
+                                    <td>
+                                        <div class='p-2'>
+                                            <h6> Gender: <span t-field="o.patient_id.gender" /></h6>
+                                        </div>
+
+
+                                        <div class='p-2'>
+                                            <h6> Mobile: <span t-field="o.patient_id.mobile" />
+                                            </h6>
+                                        </div>
+
+
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+
+                        <div>
+
+                            <t t-if="o.service_ids">
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Service Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="o.service_ids" t-as="line">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="line.service_id" />
+                                                </td>
+                                                <td>
+                                                    <span t-field="line.service_type" />
+                                                </td>
+
+                                            </tr>
+
+                                        </t>
+                                    </tbody>
+                                </table>
+
+
+                            </t>
+
+                        </div>
+
+                        <div>
+                            <h5 class='font-weight-bold mt-1'> Doctor: <span t-field="o.doctor_id" />
+
+                            </h5>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

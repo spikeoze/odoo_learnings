@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_appointment_details">
+        <t t-call="web.html_container">
+
+            <t t-call="web.external_layout">
+
+                <div class="page">
+                    <h1>
+                        Appointment
+                    </h1>
+
+                    <div>
+                        <p>Patient: <t t-if="form_data.get('patient_id')">
+                                <t t-esc="form_data['patient_id'][1]" />
+                            </t></p>
+
+
+                        <p>Date From: <t t-if="form_data.get('date_from')">
+                                <t t-esc="form_data['date_from']" />
+                            </t></p>
+
+
+                        <p>Date To: <t t-if="form_data.get('date_to')">
+                                <t t-esc="form_data['date_to']" />
+                            </t></p>
+                    </div>
+
+                    <table class="table" name='appointment'>
+                        <thead>
+                            <tr>
+                                <th scope="col">Reference</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Age</th>
+
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <t t-set="appointment_count" t-value="0" />
+                            <t t-foreach="appointments" t-as="line">
+                                <t t-set="appointment_count" t-value="appointment_count + 1" />
+                                <tr>
+                                    <td>
+                                        <span>
+                                            <t t-esc="line['reference']" />
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span>
+                                            <t t-esc="line['patient_id'][1]" />
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        <span>
+                                            <t t-esc="line['age']" />
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                            </t>
+
+                            <tr>
+                                <td colspan='2' class='bold'>
+                                    Total Appointment
+                                </td>
+
+                                <td>
+                                    <t t-esc="appointment_count" />
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

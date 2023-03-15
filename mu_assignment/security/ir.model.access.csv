@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_assignment_patient,access.assignment.patient,model_assignment_patient,,1,1,1,1
+access_assignment_doctor,access.assignment.doctor,model_assignment_doctor,,1,1,1,1
+access_assignment_service,access.assignment.service,model_assignment_service,,1,1,1,1
+access_assignment_request,access.assignment.request,model_assignment_request,,1,1,1,1
+access_assignment_request_line,access.assignment.request.line,model_assignment_request_line,,1,1,1,1
+
+
+
+
+
+

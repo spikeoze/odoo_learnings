@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Search View -->
+    <record id="product_sale_search" model="ir.ui.view">
+        <field name="name">product_sale.search</field>
+        <field name="model">product.sale</field>
+        <field name="arch" type="xml">
+            <search string="Product">
+                <field name="name" />
+                <field name="description" />
+                <separator />
+                <filter name="tv" string="Tv" domain="[('category', '=', 'tv')]" />
+                <filter name="watch" string="Watch" domain="[('category', '=', 'watch')]" />
+                <filter name="other" string="Other" domain="[('category', '=', 'other')]" />
+
+                <group string="Group By">
+                    <filter name="producer_id" string="Producer"
+                        context="{'group_by': 'producer_id'}" />
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="product_sale_tree" model="ir.ui.view">
+        <field name="name">product.sale.tree</field>
+        <field name="model">product.sale</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="category" />
+                <field name="description" />
+                <field name="producer_id" />
+                <field name="price" />
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="product_sale_kanban" model="ir.ui.view">
+        <field name="name">product.sale.kanban</field>
+        <field name="model">product.sale</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name" />
+                <field name="category" />
+                <field name="price" />
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title"> ID: <field name="id" />
+                                </strong>
+                                <div class="mt-1"> Name: <field name="name" />
+                                </div>
+
+                                <div class="mt-1"> Price: <field name="price" />
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="product_sale_form" model="ir.ui.view">
+        <field name="name">product.sale.form</field>
+        <field name="model">product.sale</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class='oe_title'>
+                        <h1>
+                            <field name="reference" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="price" />
+                            <field name="producer_id" />
+                        </group>
+                        <group>
+                            <field name="category" />
+                            <field name="description" />
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu Action -->
+    <record id="product_sale_action" model="ir.actions.act_window">
+        <field name="name">Product</field>
+        <field name="res_model">product.sale</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new product here
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem
+        id="product_sale_menu"
+        name="Product Sale"
+        sequence="11" />
+
+    <menuitem
+        id="product_menu"
+        name="Product"
+        action="product_sale_action"
+        parent="product_sale_menu"
+        sequence="10" />
+
+</odoo>
