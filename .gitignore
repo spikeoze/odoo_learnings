@@ -1,3 +1,4 @@
 /muk_web_theme
 /accounting_pdf_reports
-/om*
+/.gitignore
+/om_*
