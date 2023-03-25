@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="doctor_request_wizard_view_form" model="ir.ui.view">
+        <field name="name">doctor_request_wizard.view.form</field>
+        <field name="model">doctor.request.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id" />
+                            <field name="age" />
+                        </group>
+
+                        <group>
+                            <field name="doctor_id" />
+                            <field name="date" />
+
+                        </group>
+                    </group>
+                </sheet>
+                <notebook>
+
+                    <page name="request" string="Doctor Request">
+                        <field name="service_ids">
+                            <tree editable="bottom">
+                                <field name="service_id" />
+                                <field name="service_type" readonly="1" />
+                                <field name="price" readonly="1" />
+                            </tree>
+                        </field>
+                    </page>
+
+                </notebook>
+
+                <footer>
+                    <button string="Create" class="btn-primary" name='request_doctor'
+                        type='object' />
+
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="doctor_request_wizard_action" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="name">Doctor Request Wizard</field>
+        <field name="res_model">doctor.request.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="doctor_request_wizard_view_form" />
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="all_patient_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+
+                <div class="page">
+                    <table class="table table-bordered">
+                        <caption>List Of Patients</caption>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Mobile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="total_patient" t-value="0" />
+                            <t t-foreach="docs" t-as="line">
+                                <t t-set="total_patient" t-value="total_patient + 1" />
+                                <tr>
+                                    <th scope="row">
+                                        <t t-esc="line.id" />
+                                    </th>
+                                    <td>
+                                        <t t-esc="line.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="line.age" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="line.gender" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="line.mobile" />
+                                    </td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td colspan="3">
+                                    <h5 class="font-weight-bold">Total Patinet Selected</h5>
+                                </td>
+                                <td colspan="2">
+                                    <h5 class="font-weight-bold">
+                                        <t t-esc="total_patient" />
+                                    </h5>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </t>
+        </t>
+    </template>
+
+</odoo>

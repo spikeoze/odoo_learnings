@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+
+
     <!-- TREE VIEW -->
     <record id="assignment_doctor_view_tree" model="ir.ui.view">
         <field name="name">assignment.doctor.view.tree</field>
@@ -115,7 +117,6 @@
         parent="assignment_menu"
         action="assignment_doctor_action"
         sequence="40" />
-
 
 
 </odoo>

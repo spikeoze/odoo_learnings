@@ -4,6 +4,9 @@ access_assignment_doctor,access.assignment.doctor,model_assignment_doctor,,1,1,1
 access_assignment_service,access.assignment.service,model_assignment_service,,1,1,1,1
 access_assignment_request,access.assignment.request,model_assignment_request,,1,1,1,1
 access_assignment_request_line,access.assignment.request.line,model_assignment_request_line,,1,1,1,1
+access_doctor_request_wizard,access.doctor.request.wizard,model_doctor_request_wizard,,1,1,1,1
+access_request_line_wizard,access.request.line.wizard,model_request_line_wizard,,1,1,1,1
+
 
 
 

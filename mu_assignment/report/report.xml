@@ -38,7 +38,16 @@
     </record>
 
 
-
+    <record id="all_patient_report_action" model="ir.actions.report">
+        <field name="name">All Patient</field>
+        <field name="model">assignment.patient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mu_assignment.all_patient_report</field>
+        <field name="report_file">mu_assignment.all_patient_report</field>
+        <field name="binding_model_id" ref="model_assignment_patient" />
+        <field name="binding_type">report</field>
+        <field name="help">All Patients</field>
+    </record>
 
 
 </odoo>

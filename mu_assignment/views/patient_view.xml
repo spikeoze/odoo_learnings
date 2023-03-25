@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="assignment_patient_action_server" model="ir.actions.server">
+        <field name="name">Get Active User</field>
+        <field name="model_id" ref="model_assignment_patient" />
+        <field name="binding_model_id" ref="model_assignment_patient" />
+        <field name="state">code</field>
+        <field name="code">records.getActionId()</field>
+    </record>
+
+
     <!-- TREE VIEW -->
     <record id="assignment_patient_view_tree" model="ir.ui.view">
         <field name="name">assignment.patient.view.tree</field>
@@ -49,7 +58,11 @@
         <field name="arch" type="xml">
             <form string="">
                 <header>
-                    <button string="Search" name="testMethod" type="object" class="oe_highlight"/>
+                    <!-- <button string="Search" name="testMethod" type="object"
+                    class="oe_highlight" /> -->
+                    <button string="Doctor Request"
+                        name="%(mu_assignment.doctor_request_wizard_action)d"
+                        type="action" class="oe_highlight" />
                 </header>
                 <sheet>
                     <field name="image" widget="image" class='oe_avatar' />
@@ -58,6 +71,7 @@
                         <group>
                             <field name="name" />
                             <field name="age" />
+                            <field name="birth_date" />
                         </group>
 
                         <group>
@@ -119,7 +133,6 @@
         parent="assignment_menu"
         action="assignment_patient_action"
         sequence="30" />
-
 
 
 </odoo>
