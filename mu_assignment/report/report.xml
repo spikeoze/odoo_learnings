@@ -50,4 +50,22 @@
     </record>
 
 
+
+    <record id="request_report_wizard_action" model="ir.actions.report">
+        <field name="name">Doctor Request Report</field>
+        <field name="model">doctor.request.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mu_assignment.doctor_request_report_wizard</field>
+        <field name="report_file">mu_assignment.doctor_request_report_wizard</field>
+        <field name="binding_model_id" ref="model_doctor_request_report_wizard" />
+        <field name="binding_type">report</field>
+        <field name="help">Doctor Request</field>
+    </record>
+
+
+
+
+
+
+
 </odoo>

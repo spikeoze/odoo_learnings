@@ -12,6 +12,7 @@
     "data": [
         "security/ir.model.access.csv",
         "wizard/doctor_request_wizard.xml",
+        "wizard/doctor_request_report_wizard_view.xml",
         "views/patient_view.xml",
         "views/doctor_view.xml",
         "views/service_view.xml",
@@ -21,6 +22,7 @@
         "report/doctor_card_template.xml",
         "report/doctor_request_template.xml",
         "report/all_patients_template.xml",
+        "report/report_doctor_request_template.xml",
     ],
     "demo": [],
     "qweb": [],

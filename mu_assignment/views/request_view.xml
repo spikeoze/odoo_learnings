@@ -102,4 +102,12 @@
         action="assignment_request_action"
         sequence="70" />
 
+    <!-- Menu with action that opens a wizard from   -->
+    <menuitem
+        id="reporting_doctor_request_menu"
+        name="Doctor Request Report"
+        parent="reporting_menu"
+        action="doctor_request_report_wizard_action"
+        sequence="10" />
+
 </odoo>

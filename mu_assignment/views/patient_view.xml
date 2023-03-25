@@ -135,4 +135,13 @@
         sequence="30" />
 
 
+    <menuitem
+        id="reporting_menu"
+        name="Reportings"
+        parent="assignment_menu"
+        sequence="80" />
+
+
+
+
 </odoo>
