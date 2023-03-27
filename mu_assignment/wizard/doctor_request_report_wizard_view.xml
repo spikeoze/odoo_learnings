@@ -3,7 +3,7 @@
 
 
     <record id="doctor_request_report_wizard_view_form" model="ir.ui.view">
-        <field name="name">model_name.view.form</field>
+        <field name="name">doctor_request_report_wizard.view.form</field>
         <field name="model">doctor.request.report.wizard</field>
         <field name="arch" type="xml">
             <form>
